@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   background: rgba(104, 103, 103, 0.6);
   -webkit-backdrop-filter: blur(4px);
@@ -22,12 +26,13 @@
 }
 
 .pageNavigation {
+  z-index: 100 !important;
   position: fixed;
   display: inline-block;
   background: rgba(104, 103, 103, 0.6);
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
-  width: calc(13px + (99% - 200px));
+  width: calc((100% - 185px));
   height: 30px;
   top: 0px;
 }
@@ -35,19 +40,33 @@
 .pageNavigation .logo {
   position: relative;
   top: 0px;
-  left: 0px;
+  left: 5px;
+  z-index: 10;
+  width: 100px;
+}
+
+.pageNavigation .logo #logoLink {
+  text-decoration: none;
+  color: white;
+}
+
+.pageNavigation .logo #logoLink:hover {
+  text-shadow: 5px 5px 5px 15px black;
 }
 
 .pageNavigation .menuWrapper {
   position: absolute;
   bottom: 0px;
-  right: -200px;
-  width: 200px;
+  right: -185px;
+  width: 185px;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.pageNavigation .menuWrapper ul {
   background: rgba(255, 255, 255, 0.6);
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
-  -webkit-transition: 2s;
-  transition: 2s;
 }
 
 .pageNavigation .menuWrapper ul a {
@@ -66,13 +85,52 @@
   color: black;
 }
 
+.pageNavigation .menuWrapper ul a li:hover {
+  background: rgba(104, 103, 103, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.pageNavigation .menuWrapper ul li {
+  list-style-type: none;
+  color: black;
+  line-height: 30px;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pageNavigation .menuWrapper ul li:hover {
+  cursor: pointer;
+}
+
+.pageNavigation .menuWrapper ul li .timelapseDIY {
+  margin: 0;
+  position: relative;
+  display: none;
+}
+
+.pageNavigation .menuWrapper ul li .timelapseDIYOn {
+  display: block;
+}
+
 .pageNavigation .menuWrapper .loginForm {
   text-align: center;
-  margin: 10px 0px;
+  margin: 0px 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 
 .pageNavigation .menuWrapper .loginForm .buttonsSpace {
+  font-size: 10px;
   margin: 10px 0px;
+}
+
+.pageNavigation .menuWrapper .loginForm .buttonsSpace .submitCredentials:hover, .pageNavigation .menuWrapper .loginForm .buttonsSpace .createAccountButton:hover {
+  cursor: pointer;
 }
 
 .pageNavigation .menuWrapper .colorSpace {
@@ -88,9 +146,17 @@
 .pageNavigation .menuWrapper .colorSpace .burgerMenu {
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  position: relative;
+  position: absolute;
   top: 1px;
-  left: 170px;
+  right: 10px;
+}
+
+.pageNavigation .menuWrapper .colorSpace .burgerMenu:hover {
+  cursor: pointer;
+}
+
+.pageNavigation .menuWrapper .colorSpace .burgerMenu:hover .line {
+  background-color: lightblue;
 }
 
 .pageNavigation .menuWrapper .colorSpace .burgerMenu .line {
@@ -129,5 +195,1120 @@
   transition: 2s;
   -webkit-transform: translate(2px, -8px) rotate(-45deg);
           transform: translate(2px, -8px) rotate(-45deg);
+}
+
+@media screen and (max-width: 800px) {
+  .pageNavigation {
+    width: 100%;
+  }
+  .pageNavigation .menuWrapper {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+  .pageNavigation .menuWrapper ul .timelapseDIYList {
+    line-height: 50px;
+    font-size: 30px;
+  }
+  .pageNavigation .menuWrapper ul .timelapseDIYList ul a li {
+    font-size: 20px;
+  }
+  .pageNavigation .menuWrapper ul a {
+    height: 50px;
+  }
+  .pageNavigation .menuWrapper ul a li {
+    position: relative;
+    line-height: 50px;
+    font-size: 30px;
+  }
+  .pageNavigation .menuWrapper .loginForm .loginSpace, .pageNavigation .menuWrapper .loginForm .passwordSpace {
+    font-size: 30px;
+  }
+  .pageNavigation .menuWrapper .loginForm .loginSpace .login, .pageNavigation .menuWrapper .loginForm .loginSpace .password, .pageNavigation .menuWrapper .loginForm .passwordSpace .login, .pageNavigation .menuWrapper .loginForm .passwordSpace .password {
+    width: 250px;
+    height: 35px;
+    font-size: 22px;
+    padding-left: 10px;
+    margin: 4px 0px 4px 0px;
+  }
+  .pageNavigation .menuWrapper .loginForm .loginSpace .login, .pageNavigation .menuWrapper .loginForm .passwordSpace .login {
+    margin-left: 43px;
+  }
+  .pageNavigation .menuWrapper .loginForm .buttonsSpace {
+    font-size: 18px;
+  }
+  .pageNavigation .menuWrapper .loginForm .buttonsSpace .submitCredentials, .pageNavigation .menuWrapper .loginForm .buttonsSpace .createAccountButton {
+    font-size: 20px;
+    padding: 5px;
+  }
+  .pageNavigation .menuWrapper .colorSpace {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+  .pageNavigation .menuWrapper .colorSpace .burgerMenu {
+    position: absolute;
+    right: 5px;
+  }
+  .pageNavigation .menuWrapperOn {
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+  .pageNavigation .menuWrapperOn .colorSpace {
+    background: rgba(104, 103, 103, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+}
+
+.videoBackground {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.videoBackground .videoBg {
+  position: relative;
+  background-position: center center;
+  z-index: -100;
+}
+
+.videoBackground .whiteWindow {
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.intro {
+  position: relative;
+}
+
+.intro .cloudsStaring {
+  width: 100%;
+}
+
+.intro .headerIntro {
+  position: absolute;
+  direction: rtl;
+  top: 150px;
+  right: 150px;
+  width: 60%;
+  font-size: 2.6em;
+  font-weight: 600;
+}
+
+.intro h1 {
+  position: absolute;
+  direction: ltr;
+  top: 70%;
+  left: 150px;
+  color: white;
+  width: 60%;
+  font-size: 2.6em;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 1450px) and (min-width: 800px) {
+  .intro .headerIntro, .intro h1 {
+    font-size: 25px;
+  }
+  .intro h1 {
+    top: 65%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .videoBackground .videoBg {
+    margin-left: -50%;
+  }
+  .intro {
+    overflow-x: hidden;
+  }
+  .intro .cloudsStaring {
+    height: 100vh;
+    width: auto;
+    left: 50%;
+  }
+  .intro .headerIntro {
+    font-size: 16px;
+    top: 90px;
+    right: 10%;
+    width: 80%;
+  }
+  .intro h1 {
+    font-size: 12px;
+    left: 10%;
+    bottom: 10%;
+    width: 80%;
+  }
+}
+
+#timelapseDIY header {
+  margin-bottom: -110px;
+}
+
+#timelapseDIY header .brain {
+  width: 100%;
+  margin-top: -150px;
+  position: relative;
+  margin-bottom: -110px;
+}
+
+#timelapseDIY header h1 {
+  font-size: 2.8rem;
+  position: relative;
+  top: -220px;
+  color: white;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  #timelapseDIY {
+    width: 100%;
+  }
+  #timelapseDIY header .brain {
+    height: 100vh;
+    margin-top: -150px;
+    position: relative;
+    margin-bottom: -110px;
+  }
+  #timelapseDIY header h1 {
+    font-size: 25px;
+    position: relative;
+    top: -320px;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 2px black, -1px -1px 2px black;
+  }
+}
+
+#cloud1 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud1.jpg");
+}
+
+#cloud1 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#cloud2 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud2.jpg");
+}
+
+#cloud2 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#cloud3 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud3.jpg");
+}
+
+#cloud3 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#cloud4 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud4.jpg");
+}
+
+#cloud4 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#cloud5 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud5.jpg");
+}
+
+#cloud5 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#cloud6 {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("images/cloud6.jpg");
+}
+
+#cloud6 .cloudName {
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.cloud1, .cloudOn1, .cloudOn2, .cloudOn3, .cloudOn4, .cloudOn5, .cloudOn6 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud1 .stepsContainer, .cloudOn1 .stepsContainer, .cloudOn2 .stepsContainer, .cloudOn3 .stepsContainer, .cloudOn4 .stepsContainer, .cloudOn5 .stepsContainer, .cloudOn6 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud1 .stepsContainer p, .cloudOn1 .stepsContainer p, .cloudOn2 .stepsContainer p, .cloudOn3 .stepsContainer p, .cloudOn4 .stepsContainer p, .cloudOn5 .stepsContainer p, .cloudOn6 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud1 .stepsContainer .stepsImages, .cloudOn1 .stepsContainer .stepsImages, .cloudOn2 .stepsContainer .stepsImages, .cloudOn3 .stepsContainer .stepsImages, .cloudOn4 .stepsContainer .stepsImages, .cloudOn5 .stepsContainer .stepsImages, .cloudOn6 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud1 .stepsContainer, .cloudOn1 .stepsContainer, .cloudOn2 .stepsContainer, .cloudOn3 .stepsContainer, .cloudOn4 .stepsContainer, .cloudOn5 .stepsContainer, .cloudOn6 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud1 .stepsContainer p, .cloudOn1 .stepsContainer p, .cloudOn2 .stepsContainer p, .cloudOn3 .stepsContainer p, .cloudOn4 .stepsContainer p, .cloudOn5 .stepsContainer p, .cloudOn6 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud1 .stepsContainer img, .cloudOn1 .stepsContainer img, .cloudOn2 .stepsContainer img, .cloudOn3 .stepsContainer img, .cloudOn4 .stepsContainer img, .cloudOn5 .stepsContainer img, .cloudOn6 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloud2 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud2 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud2 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud2 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud2 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud2 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud2 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloud3 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud3 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud3 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud3 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud3 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud3 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud3 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloud4 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud4 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud4 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud4 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud4 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud4 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud4 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloud5 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud5 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud5 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud5 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud5 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud5 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud5 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloud6 {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  line-height: 100vh;
+  text-align: center;
+  left: 10%;
+}
+
+.cloud6 .stepsContainer {
+  position: relative;
+  margin: 0 25%;
+  width: 70%;
+  height: 90%;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.cloud6 .stepsContainer p {
+  position: relative;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cloud6 .stepsContainer .stepsImages {
+  position: relative;
+  padding: 50px 50px 50px 50px;
+  width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+  .cloud6 .stepsContainer {
+    position: relative;
+    width: 110%;
+    height: 100%;
+    left: -10%;
+    margin: 0 10% 0 10%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cloud6 .stepsContainer p {
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+  .cloud6 .stepsContainer img {
+    max-width: 150px;
+    bottom: 50px;
+  }
+}
+
+.cloudOn1 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn1 {
+    left: -10%;
+  }
+}
+
+.cloudOn2 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn2 {
+    left: -10%;
+  }
+}
+
+.cloudOn3 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn3 {
+    left: -10%;
+  }
+}
+
+.cloudOn4 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn4 {
+    left: -10%;
+  }
+}
+
+.cloudOn5 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn5 {
+    left: -10%;
+  }
+}
+
+.cloudOn6 {
+  width: 110%;
+  left: -15%;
+  -webkit-transition: 2s;
+  transition: 2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .cloudOn6 {
+    left: -10%;
+  }
+}
+
+#timelapseGalery {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  background-color: red;
+}
+
+#timelapseGalery .actualTimelapse {
+  position: relative;
+  width: 60%;
+  margin-top: -10%;
+}
+
+#timelapseGalery .actualTimelapse video {
+  width: 100%;
+}
+
+#timelapseGalery .timelapseContainer {
+  position: absolute;
+  top: 100%;
+  overflow: hidden;
+  width: 101%;
+  height: auto;
+  left: 0;
+  margin-left: 0px;
+  margin-top: 1%;
+}
+
+#timelapseGalery .timelapseContainer .timelapses {
+  width: 200%;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+#timelapseGalery .timelapseContainer .timelapses .timelapse {
+  position: relative;
+  width: 12%;
+  margin: 1%;
+  display: inline-block;
+  margin: 2px 0 0 0;
+}
+
+#timelapseGalery .timelapseContainer .timelapses .timelapse:hover {
+  cursor: pointer;
+}
+
+#timelapseGalery .timelapseContainer .timelapsesOn {
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transform: translateX(-48%);
+          transform: translateX(-48%);
+}
+
+#timelapseGalery .timelapseContainer .previousTimelapse {
+  position: absolute;
+  width: 15px;
+  height: 95%;
+  left: -1px;
+  border: 1px solid black;
+  background-color: white;
+  z-index: 1;
+  text-align: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#timelapseGalery .timelapseContainer .previousTimelapse:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#timelapseGalery .timelapseContainer .previousTimelapseOn {
+  background-color: grey;
+}
+
+#timelapseGalery .timelapseContainer .previousTimelapseOn:hover {
+  cursor: default;
+  background-color: grey;
+}
+
+#timelapseGalery .timelapseContainer .nextTimelapse {
+  position: absolute;
+  width: 15px;
+  height: 95%;
+  right: -1px;
+  border: 1px solid black;
+  background-color: white;
+  z-index: 10;
+  text-align: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border-radius: 0px 5px 5px 0px;
+  bottom: 1px;
+  right: 0%;
+}
+
+#timelapseGalery .timelapseContainer .nextTimelapse:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#timelapseGalery .timelapseContainer .nextTimelapseOn {
+  background-color: grey;
+}
+
+#timelapseGalery .timelapseContainer .nextTimelapseOn:hover {
+  cursor: default;
+  background-color: grey;
+}
+
+@media screen and (max-width: 800px) {
+  #timelapseGalery {
+    background-color: blue;
+  }
+  #timelapseGalery .actualTimelapse {
+    top: 0px;
+    width: 90%;
+  }
+  #timelapseGalery .actualTimelapse .timelapses {
+    width: 200%;
+  }
+  #timelapseGalery .actualTimelapse .timelapses .timelapse {
+    width: 11%;
+    margin: 0%;
+  }
+  #timelapseGalery .actualTimelapse .timelapsesOn {
+    -webkit-transition: 2s;
+    transition: 2s;
+    -webkit-transform: translateX(-40%);
+            transform: translateX(-40%);
+  }
+}
+
+footer {
+  margin: 30px;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer form legend {
+  padding: 15px;
+}
+
+footer form fieldset {
+  padding: 10px;
+}
+
+footer form fieldset span {
+  margin-bottom: 15px;
 }
 /*# sourceMappingURL=style.css.map */
