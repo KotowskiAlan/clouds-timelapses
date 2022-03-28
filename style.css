@@ -69,6 +69,80 @@ html {
           backdrop-filter: blur(4px);
 }
 
+.pageNavigation .menuWrapper ul .timelapseDIYList .timelapseTriangle {
+  margin-top: -15px;
+  margin-bottom: -5px;
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
+  -webkit-animation: timelapseDIYDropdown 1s infinite;
+          animation: timelapseDIYDropdown 1s infinite;
+}
+
+@-webkit-keyframes timelapseDIYDropdown {
+  0% {
+    -webkit-transform: translateY(-2px) rotateZ(180deg);
+            transform: translateY(-2px) rotateZ(180deg);
+  }
+  50% {
+    -webkit-transform: translateY(2px) rotateZ(180deg);
+            transform: translateY(2px) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: translateY(-2px) rotateZ(180deg);
+            transform: translateY(-2px) rotateZ(180deg);
+  }
+}
+
+@keyframes timelapseDIYDropdown {
+  0% {
+    -webkit-transform: translateY(-2px) rotateZ(180deg);
+            transform: translateY(-2px) rotateZ(180deg);
+  }
+  50% {
+    -webkit-transform: translateY(2px) rotateZ(180deg);
+            transform: translateY(2px) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: translateY(-2px) rotateZ(180deg);
+            transform: translateY(-2px) rotateZ(180deg);
+  }
+}
+
+.pageNavigation .menuWrapper ul .timelapseDIYList .timelapseTriangleOn {
+  -webkit-animation: timelapseDIYDropdownOn 1s infinite;
+          animation: timelapseDIYDropdownOn 1s infinite;
+}
+
+@-webkit-keyframes timelapseDIYDropdownOn {
+  0% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  50% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+  100% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+}
+
+@keyframes timelapseDIYDropdownOn {
+  0% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+  50% {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+  }
+  100% {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+  }
+}
+
 .pageNavigation .menuWrapper ul a {
   position: relative;
   width: 100%;
@@ -545,7 +619,7 @@ html {
   opacity: 0.8;
 }
 
-.cloud1, .cloudOn1, .cloudOn2, .cloudOn3, .cloudOn4, .cloudOn5, .cloudOn6 {
+.cloud1, .easingOn {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -560,7 +634,7 @@ html {
   left: 10%;
 }
 
-.cloud1 .stepsContainer, .cloudOn1 .stepsContainer, .cloudOn2 .stepsContainer, .cloudOn3 .stepsContainer, .cloudOn4 .stepsContainer, .cloudOn5 .stepsContainer, .cloudOn6 .stepsContainer {
+.cloud1 .stepsContainer, .easingOn .stepsContainer {
   position: relative;
   margin: 0 25%;
   width: 70%;
@@ -581,7 +655,7 @@ html {
   text-align: center;
 }
 
-.cloud1 .stepsContainer p, .cloudOn1 .stepsContainer p, .cloudOn2 .stepsContainer p, .cloudOn3 .stepsContainer p, .cloudOn4 .stepsContainer p, .cloudOn5 .stepsContainer p, .cloudOn6 .stepsContainer p {
+.cloud1 .stepsContainer p, .easingOn .stepsContainer p {
   position: relative;
   font-size: 20px;
   width: 100%;
@@ -597,14 +671,14 @@ html {
           align-items: center;
 }
 
-.cloud1 .stepsContainer .stepsImages, .cloudOn1 .stepsContainer .stepsImages, .cloudOn2 .stepsContainer .stepsImages, .cloudOn3 .stepsContainer .stepsImages, .cloudOn4 .stepsContainer .stepsImages, .cloudOn5 .stepsContainer .stepsImages, .cloudOn6 .stepsContainer .stepsImages {
+.cloud1 .stepsContainer .stepsImages, .easingOn .stepsContainer .stepsImages {
   position: relative;
   padding: 50px 50px 50px 50px;
   width: 200px;
 }
 
 @media screen and (max-width: 800px) {
-  .cloud1 .stepsContainer, .cloudOn1 .stepsContainer, .cloudOn2 .stepsContainer, .cloudOn3 .stepsContainer, .cloudOn4 .stepsContainer, .cloudOn5 .stepsContainer, .cloudOn6 .stepsContainer {
+  .cloud1 .stepsContainer, .easingOn .stepsContainer {
     position: relative;
     width: 110%;
     height: 100%;
@@ -619,12 +693,12 @@ html {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .cloud1 .stepsContainer p, .cloudOn1 .stepsContainer p, .cloudOn2 .stepsContainer p, .cloudOn3 .stepsContainer p, .cloudOn4 .stepsContainer p, .cloudOn5 .stepsContainer p, .cloudOn6 .stepsContainer p {
+  .cloud1 .stepsContainer p, .easingOn .stepsContainer p {
     width: 80%;
     margin: 0;
     text-align: center;
   }
-  .cloud1 .stepsContainer img, .cloudOn1 .stepsContainer img, .cloudOn2 .stepsContainer img, .cloudOn3 .stepsContainer img, .cloudOn4 .stepsContainer img, .cloudOn5 .stepsContainer img, .cloudOn6 .stepsContainer img {
+  .cloud1 .stepsContainer img, .easingOn .stepsContainer img {
     max-width: 150px;
     bottom: 50px;
   }
@@ -1055,7 +1129,7 @@ html {
   }
 }
 
-.cloudOn1 {
+.easingOn {
   width: 110%;
   left: -15%;
   -webkit-transition: 2s;
@@ -1065,82 +1139,7 @@ html {
 }
 
 @media screen and (max-width: 800px) {
-  .cloudOn1 {
-    left: -10%;
-  }
-}
-
-.cloudOn2 {
-  width: 110%;
-  left: -15%;
-  -webkit-transition: 2s;
-  transition: 2s;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .cloudOn2 {
-    left: -10%;
-  }
-}
-
-.cloudOn3 {
-  width: 110%;
-  left: -15%;
-  -webkit-transition: 2s;
-  transition: 2s;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .cloudOn3 {
-    left: -10%;
-  }
-}
-
-.cloudOn4 {
-  width: 110%;
-  left: -15%;
-  -webkit-transition: 2s;
-  transition: 2s;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .cloudOn4 {
-    left: -10%;
-  }
-}
-
-.cloudOn5 {
-  width: 110%;
-  left: -15%;
-  -webkit-transition: 2s;
-  transition: 2s;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .cloudOn5 {
-    left: -10%;
-  }
-}
-
-.cloudOn6 {
-  width: 110%;
-  left: -15%;
-  -webkit-transition: 2s;
-  transition: 2s;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-  .cloudOn6 {
+  .easingOn {
     left: -10%;
   }
 }
@@ -1158,7 +1157,7 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  background-color: red;
+  background-color: lightgrey;
 }
 
 #timelapseGalery .actualTimelapse {
@@ -1211,7 +1210,7 @@ html {
   position: absolute;
   width: 15px;
   height: 95%;
-  left: -1px;
+  left: 0px;
   border: 1px solid black;
   background-color: white;
   z-index: 1;
@@ -1219,6 +1218,13 @@ html {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   border-radius: 5px 0px 0px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 2px;
 }
 
 #timelapseGalery .timelapseContainer .previousTimelapse:hover {
@@ -1241,7 +1247,7 @@ html {
   position: absolute;
   width: 15px;
   height: 95%;
-  right: -1px;
+  right: 0px;
   border: 1px solid black;
   background-color: white;
   z-index: 10;
@@ -1249,7 +1255,13 @@ html {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   border-radius: 0px 5px 5px 0px;
-  bottom: 1px;
+  bottom: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   right: 0%;
 }
 
@@ -1270,9 +1282,6 @@ html {
 }
 
 @media screen and (max-width: 800px) {
-  #timelapseGalery {
-    background-color: blue;
-  }
   #timelapseGalery .actualTimelapse {
     top: 0px;
     width: 90%;
@@ -1310,5 +1319,195 @@ footer form fieldset {
 
 footer form fieldset span {
   margin-bottom: 15px;
+}
+
+.registry {
+  position: absolute;
+  min-width: 220px;
+  max-width: 350px;
+  min-height: 400px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.registry .registryForm {
+  position: relative;
+  top: 15px;
+}
+
+.registry .registryForm fieldset {
+  border: none;
+}
+
+.registry .registryForm fieldset legend {
+  padding: 0 5px 0 5px;
+  color: black;
+  margin-bottom: 10px;
+  border-bottom: 1px solid grey;
+  width: 96%;
+}
+
+.registry .registryForm fieldset legend h1 {
+  font-size: 24px;
+}
+
+.registry .registryForm fieldset legend h3 {
+  margin-top: -2px;
+  font-size: 12px;
+}
+
+.registry .registryForm fieldset #newName {
+  position: relative;
+  width: 47%;
+  margin: 5px 1px 5px 1px;
+  float: left;
+  height: 25px;
+  border: 1px solid grey;
+  padding-left: 3px;
+}
+
+.registry .registryForm fieldset #newSurname {
+  position: relative;
+  width: 47%;
+  margin: 5px 1px 5px 1px;
+  float: left;
+  height: 25px;
+  border: 1px solid grey;
+  padding-left: 3px;
+}
+
+.registry .registryForm fieldset #newContact {
+  width: 97%;
+  margin: 5px 1px 5px 1px;
+  height: 25px;
+  border: 1px solid grey;
+  padding-left: 3px;
+}
+
+.registry .registryForm fieldset #newPassword {
+  width: 97%;
+  margin: 5px 1px 5px 1px;
+  height: 25px;
+  border: 1px solid grey;
+  padding-left: 3px;
+}
+
+.registry .registryForm fieldset .birth {
+  width: 100%;
+  height: 50px;
+  margin-left: 2px;
+}
+
+.registry .registryForm fieldset .birth p {
+  font-size: 18px;
+  margin: 2px;
+}
+
+.registry .registryForm fieldset .birth #birthDay {
+  width: 32%;
+}
+
+.registry .registryForm fieldset .birth #birthMonth {
+  width: 32%;
+}
+
+.registry .registryForm fieldset .birth #birthYear {
+  width: 32%;
+}
+
+.registry .registryForm fieldset .sex {
+  width: 100%;
+  height: 50px;
+}
+
+.registry .registryForm fieldset .sex p {
+  font-size: 18px;
+  margin: 2px;
+}
+
+.registry .registryForm fieldset .sex .inputs {
+  width: 30%;
+  margin: 0 1%;
+  padding: 1px;
+  border: 1px solid black;
+  float: left;
+  height: 20px;
+}
+
+.registry .registryForm fieldset .sex .inputs:active {
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.registry .registryForm fieldset .sex .inputs input {
+  margin: 3px;
+  display: block;
+}
+
+.registry .registryForm fieldset .sex .inputs label {
+  display: block;
+  margin-top: -18px;
+  text-align: center;
+}
+
+.registry .registryForm fieldset .sex .inputs label:hover {
+  cursor: pointer;
+}
+
+.registry p {
+  margin: 5px;
+}
+
+.registry #registryButton {
+  position: relative;
+  width: 80%;
+  margin: 0 10%;
+  bottom: -5px;
+  border-radius: 15px;
+  background: #fbe173;
+  background: -webkit-gradient(linear, left top, right top, from(#fbe173), color-stop(25%, white), color-stop(75%, white), to(#fbe173));
+  background: linear-gradient(90deg, #fbe173 0%, white 25%, white 75%, #fbe173 100%);
+}
+
+.registry #registryButton:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .registry {
+    min-height: 80%;
+    height: 100%;
+    width: 100%;
+  }
+  .registry .registryForm {
+    margin-top: 15%;
+  }
+  .registry .registryForm fieldset .sex .inputs {
+    width: 96%;
+  }
+  .registry #registryButton {
+    position: relative;
+    bottom: -10px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
+
+.registryBackground {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+  background: url("images/registry.jpg") no-repeat center;
 }
 /*# sourceMappingURL=style.css.map */
