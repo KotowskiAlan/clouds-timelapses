@@ -29,10 +29,8 @@ const onScroll = () => {
     elements.forEach((el) => {
       const cloudRect = el.getBoundingClientRect();
       const windowPosition = cloudRect.top - bodyRect.top - 200;
-      const condition = yScroll >= windowPosition;
-      
-      if (condition) el.classList.add('easingOn');
-      else el.classList.remove('easingOn');
+
+        el = yScroll >= windowPosition ? el.classList.add('easingOn') : el.classList.remove('easingOn');
     })
 }
 

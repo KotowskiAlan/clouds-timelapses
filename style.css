@@ -372,6 +372,7 @@ html {
 
 .intro .cloudsStaring {
   width: 100%;
+  position: relative;
 }
 
 .intro .headerIntro {
@@ -413,12 +414,10 @@ html {
   }
   .intro .cloudsStaring {
     height: 100vh;
-    width: auto;
-    left: 50%;
   }
   .intro .headerIntro {
     font-size: 16px;
-    top: 90px;
+    top: 10%;
     right: 10%;
     width: 80%;
   }
@@ -445,8 +444,10 @@ html {
   font-size: 2.8rem;
   position: relative;
   top: -220px;
-  color: white;
+  color: black;
   text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
 }
 
 @media screen and (max-width: 900px) {

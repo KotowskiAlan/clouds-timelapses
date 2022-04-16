@@ -307,7 +307,7 @@ top: 0px;
     position: relative;
     .cloudsStaring{
         width: 100%;
-        
+        position: relative;
     }
     .headerIntro{
         position: absolute;
@@ -330,6 +330,7 @@ top: 0px;
         font-weight: 600;
         
     }
+
 }
 // RWD
 @media only screen and (max-width: 1450px) and (min-width: 800px){
@@ -353,12 +354,10 @@ top: 0px;
         overflow-x: hidden;
         .cloudsStaring{
         height: 100vh;
-        width: auto;
-        left: 50%;
         }
         .headerIntro{
             font-size: 16px;
-            top: 90px;
+            top: 10%;
             right: 10%;
             width: 80%;
         }
@@ -387,9 +386,10 @@ top: 0px;
         font-size: 2.8rem;
         position: relative;
         top: -220px;
-        color: white;
+        color: black;
         text-align: center;
-        
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
     }
 }
 }
@@ -833,7 +833,7 @@ background: linear-gradient(90deg, rgba(251,225,115,1) 0%, rgba(255,255,255,1) 2
             .registryForm{
                 margin-top: 15%;
                 fieldset{
-
+                    
                     .sex{
                         .inputs{
                             width: 96%;
